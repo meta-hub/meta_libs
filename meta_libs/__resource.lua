@@ -1,6 +1,7 @@
 resource_manifest_version '44febabe-d386-4d18-afbe-5e627f4af937'
 
 client_scripts {
+  'client/lib/classes/String.lua',
   'client/lib/classes/Blip.lua',
   'client/lib/classes/Marker.lua',
   'client/lib/classes/Vector.lua',
@@ -15,3 +16,8 @@ client_scripts {
   'client/lib/scripts/VehicleProperties.lua',
 }
 
+server_scripts {
+  'server/lib/classes/String.lua',  
+  'server/lib/scripts/Utilities.lua',
+  'server/lib/scripts/_.lua',
+}

@@ -10,6 +10,12 @@
 
 local blips = {}
 
+local actions = {
+  alpha = SetBlipAlpha,
+  color = SetBlipColour,
+  scale = SetBlipScale,
+}
+
 exports('AddBlip', function(...)
   local handle = #blips+1
   local blip = Blip(...)
@@ -24,10 +30,26 @@ exports('AddRadiusBlip', function(...)
   return handle
 end)
 
+exports('AddAreaBlip', function(...)
+  local handle = #blips+1
+  local blip = AreaBlip(...)
+  blips[handle] = blip
+  return handle
+end)
+
+exports('GetBlip', function(handle)
+  return blips[handle]
+end)
+
+exports('SetBlip', function(blip,key,val)  
+  blip[key] = val
+  if actions[key] then actions[key](blip["handle"],val); end 
+end)
+
 exports('RemoveBlip', function(handle)
   local blip = blips[handle]
   if blip then
-    RemoveBlip(blip.handle)
+    RemoveBlip(blip["handle"])
     blips[handle] = nil
   end
 end)

@@ -50,3 +50,28 @@ RadiusBlip = function(x,y,z,range,color,alpha,highDetail)
     pos = vector3((x or 0.0),(y or 0.0),(z or 0.0))
   }
 end
+
+AreaBlip = function(x,y,z,width,height,heading,color,alpha,highDetail,display,shortRange)
+  local blip = AddBlipForArea((x or 0.0),(y or 0.0),(z or 0.0),(width or 100.0),(height or 100.0))
+  SetBlipColour(blip, (color or 1))
+  SetBlipAlpha (blip, (alpha or 80))
+  SetBlipHighDetail(blip, (highDetail or true))
+  SetBlipRotation(blip, (heading or 0.0))
+  SetBlipDisplay(blip, (display or 4))
+  SetBlipAsShortRange(blip, (shortRange or true))
+
+  return {
+    handle = blip,
+    x = (x or 0.0),
+    y = (y or 0.0),
+    z = (z or 0.0),
+    width = (width or 100.0),
+    display = (display or 4),
+    height = (height or 100.0),
+    heading = (heading or 0.0),
+    color = (color or 1),
+    alpha = (alpha or 80),
+    highDetail = (highDetail or true),
+    pos = vector3((x or 0.0),(y or 0.0),(z or 0.0))
+  }
+end

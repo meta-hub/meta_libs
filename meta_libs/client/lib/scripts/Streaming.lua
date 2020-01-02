@@ -26,7 +26,7 @@ ReleaseAnimDict = function(dict)
   end
 end
 
-exports('LoadModel', LoadeModel)
+exports('LoadModel', LoadModel)
 exports('ReleaseModel', ReleaseModel)
 exports('LoadAnimDict', LoadAnimDict)
 exports('ReleaseAnimDict', ReleaseAnimDict)

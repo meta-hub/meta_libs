@@ -8,8 +8,9 @@
 
 Vector = {
   Dist = function(v1,v2)  
-    if not v1 or not v2 or not v1.x or not v2.x then return 0; end
-    local t1,t2 = type(v1),type(v2)
+    if not v1 or not v2 or not v1.x or not v2.x or not v1.z or not v2.z then return 0; end
+    return math.sqrt( ((v1.x - v2.x)*(v1.x-v2.x)) + ((v1.y - v2.y)*(v1.y-v2.y)) + ((v1.z-v2.z)*(v1.z-v2.z)) )
+--[[    local t1,t2 = type(v1),type(v2)
     if t1 == "vector4" and t2 == "vector4" then
       return math.sqrt( ((v1.x - v2.x)*(v1.x-v2.x)) + ((v1.y - v2.y)*(v1.y-v2.y)) + ((v1.z-v2.z)*(v1.z-v2.z)) + ((v1.w-v2.w)*(v1.w-v2.w)) )
     elseif (t1 == "vector3" and t2 == "vector3") or (t1 == "vector3" and t2 == "vector4") or (t1 == "vector4" and t2 == "vector3") then
@@ -18,7 +19,7 @@ Vector = {
       return math.sqrt( ((v1.x - v2.x)*(v1.x-v2.x)) + ((v1.y - v2.y)*(v1.y-v2.y)) )
     else
       return false
-    end
+    end--]]
   end,
 
   SqMagnitude = function(v)

@@ -352,7 +352,7 @@ GetVehicleProps = function(vehicle)
   local pearlescentColor, wheelColor = GetVehicleExtraColours(vehicle)
   local extras = {}
 
-  for id=0, 12 do
+  for id=0, 64 do
     if DoesExtraExist(vehicle, id) then
       local state = IsVehicleExtraTurnedOn(vehicle, id) == 1
       extras[tostring(id)] = state

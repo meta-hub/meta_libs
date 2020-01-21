@@ -4,8 +4,10 @@ client_scripts {
   'client/lib/classes/String.lua',
   'client/lib/classes/Blip.lua',
   'client/lib/classes/Marker.lua',
+  'client/lib/classes/Scenes.lua',
   'client/lib/classes/Vector.lua',
   'client/lib/classes/Vehicle.lua',
+
   'client/lib/scripts/BlipHandler.lua',
   'client/lib/scripts/MarkerHandler.lua',
   'client/lib/scripts/Networking.lua',
@@ -18,6 +20,9 @@ client_scripts {
 
 server_scripts {
   'server/lib/classes/String.lua',  
+  'server/lib/classes/Table.lua',  
+  'server/lib/classes/Json.lua',  
+
   'server/lib/scripts/Utilities.lua',
   'server/lib/scripts/_.lua',
 }

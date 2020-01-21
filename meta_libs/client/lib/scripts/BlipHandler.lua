@@ -41,7 +41,8 @@ exports('GetBlip', function(handle)
   return blips[handle]
 end)
 
-exports('SetBlip', function(blip,key,val)  
+exports('SetBlip', function(handle,key,val)  
+  local blip = blips[handle]
   blip[key] = val
   if actions[key] then actions[key](blip["handle"],val); end 
 end)
@@ -50,7 +51,6 @@ exports('RemoveBlip', function(handle)
   local blip = blips[handle]
   if blip then
     RemoveBlip(blip["handle"])
-    blips[handle] = nil
   end
 end)
 

@@ -23,3 +23,5 @@ end
 string.fromhex = function(str) 
   return (str:gsub('..', function (cc) return string.char(tonumber(cc, 16)) end))
 end
+
+exports('String', function(...) return string; end)

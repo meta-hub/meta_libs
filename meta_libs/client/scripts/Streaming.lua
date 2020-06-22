@@ -28,7 +28,7 @@ end
 
 ReleaseAnimDict = function(dict)
   if HasAnimDictLoaded(dict) then
-    SetAnimDictAsNoLongerNeeded(dict)
+    RemoveAnimDict(dict)
   end
 end
 

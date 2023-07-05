@@ -35,10 +35,12 @@ local RenderMarker = function(marker)
 end
 
 local DrawMarkers = function()
+  local isAnythingDrawn = false
   local plyPos = PlayerPos()
   for k,v in pairs(chunk) do
     local dist = Vector.Dist(plyPos,v.pos)
     if dist < drawDist then
+      isAnythingDrawn = true
       RenderMarker(v)
       if v.textDist and v.text then
         if dist < v.textDist then
@@ -53,6 +55,7 @@ local DrawMarkers = function()
       end
     end
   end
+  return isAnythingDrawn
 end
 
 Citizen.CreateThread(function()
@@ -63,8 +66,9 @@ Citizen.CreateThread(function()
       lastChunk = timeNow
       chunk = ReChunk()
     end
-    DrawMarkers()
-    Wait(0)
+    local isAnythingDrawn = DrawMarkers()
+    local sleepTime = isAnythingDrawn and 5 or 500
+    Wait(sleepTime)
   end
 end)
 
